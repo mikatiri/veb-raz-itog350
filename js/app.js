@@ -4,7 +4,7 @@ const popularProducts = document.getElementById("popularProducts");
 if (popularProducts) {
     popularProducts.innerHTML = products.map(product => `
     
-        <div class="product-card">
+        <div class="product-card" onclick="openProductModal(${product.id})">
 
             <img src="${product.image}" alt="${product.title}">
 

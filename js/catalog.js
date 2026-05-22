@@ -11,7 +11,7 @@ function renderProducts(items) { //как выглядят товары на с�
 
     catalogProducts.innerHTML = items.map(product => `
     
-        <div class="product-card">
+        <div class="product-card" onclick="openProductModal(${product.id})">
 
             <img src="${product.image}" alt="${product.title}">
 

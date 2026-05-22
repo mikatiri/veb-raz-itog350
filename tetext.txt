@@ -1,0 +1,1038 @@
+css/style.css:
+
+/* Это база это base это основа */
+
+:root {
+    --bg-main: #111827;
+    --bg-secondary: #1f2937;
+    --bg-card: #374151;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --danger: #dc2626;
+    --success: #22c55e;
+    --text-main: #ffffff;
+    --text-secondary: #9ca3af;
+    --border-radius: 20px;
+    --transition: 0.25s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-main);
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin: 60px auto;
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: var(--accent);
+}
+
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.error {
+    color: var(--danger);
+    text-align: center;
+}
+
+.success {
+    color: var(--success);
+    text-align: center;
+}
+
+/* ЛОГО */
+
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: white;
+}
+/* ----------------- */
+
+/* -- NAVBAR -- */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-hover);
+}
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.profile-link:hover {
+    color: var(--accent-hover)
+}
+
+/* -- Авторизация Вход и Профиль -- */
+
+.profile-page .container{
+    max-width: 600px;
+}
+
+.profile-page button{
+    margin-top: 15px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.profile-card {
+    background: var(--bg-card);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+logout-btn{
+    width: 100%;
+    margin-top: 25px;
+    background: var(--bg-card)
+}
+
+logout-btn:hover{
+    background: var(--danger);
+}
+/* --------------------------- */
+
+/* Главная страница и каталог */
+
+.page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    padding: 60px 30px;
+    border-radius: 24px;
+    margin-bottom: 35px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    background: var(--bg-secondary);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-category {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    flex: 1;
+    min-width: 220px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+}
+/* --------------------- */
+
+
+data/products.js:
+
+//тут все товары что булут в каталоге
+const products = [
+    {
+        id: 1,
+        title: "RTX 4070 Ti",
+        category: "Видеокарты",
+        brand: "NVIDIA",
+        price: 79990,
+        oldPrice: 89990,
+        discount: 11,
+        rating: 4.9,
+        stock: true,
+        isPopular: true,
+        specs: {
+            memory: "12GB",
+            frequency: "2610 MHz",
+            power: "285W"
+        },
+        description:
+            "Мощная видеокарта для 2K и 4K гейминга.",
+
+        reviews: [],
+        image: src="./assets/Products/RTX 4070 Ti.jpg"
+    },
+
+    {
+        id: 2,
+        title: "Ryzen 7 7800X3D",
+        category: "Процессоры",
+        price: 42990,
+        rating: 5.0,
+        image: src="./assets/Products/Ryzen 7 7800x3d.jpg"
+    },
+
+    {
+        id: 3,
+        title: "Corsair 32GB DDR5",
+        category: "Оперативная память",
+        price: 14990,
+        rating: 4.8,
+        image: src="./assets/Products/RTX 4070 Ti.jpg"
+    },
+
+    {
+        id: 4,
+        title: "Samsung 990 PRO 2TB",
+        category: "SSD",
+        price: 18990,
+        rating: 4.9,
+        image: src="./assets/Products/RTX 4070 Ti.jpg"
+    },
+
+    {
+        id: 5,
+        title: "ASUS ROG STRIX B650",
+        category: "Материнские платы",
+        price: 23990,
+        rating: 4.7,
+        image: src="./assets/Products/RTX 4070 Ti.jpg"
+    },
+
+    {
+        id: 6,
+        title: "DeepCool AK620",
+        category: "Охлаждение",
+        price: 6990,
+        rating: 4.8,
+        image: src="./assets/Products/RTX 4070 Ti.jpg"
+    }
+];
+
+data/users.js:
+
+//тут хранятся базовые профили которые зарегестрированны заранее
+const defaultUsers = [
+    {
+        id: 1,
+        name: "Любовь Эдуардовна",
+        email: "liubovsheyda@gmail.com",
+        password: "Teacher_2026",
+        bonuses: 500,
+        favorites: [],
+        orders: [],
+        reviews: []
+    },
+
+    {
+        id: 2,
+        name: "user",
+        email: "abob@mail.ru",
+        password: "000",
+        bonuses: 1500,
+        favorites: [],
+        orders: [],
+        reviews: []
+    }
+];
+
+js/app.js:
+
+//это то как выглядет вкладка популярных товаров на главном экране
+const popularProducts = document.getElementById("popularProducts");
+
+if (popularProducts) {
+    popularProducts.innerHTML = products.map(product => `
+    
+        <div class="product-card">
+
+            <img src="${product.image}" alt="${product.title}">
+
+            <div class="product-content">
+
+                <h3 class="product-title">
+                    ${product.title}
+                </h3>
+
+                <p class="product-category">
+                    ${product.category}
+                </p>
+
+                <p class="product-price">
+                    ${product.price.toLocaleString()} ₽
+                </p>
+
+                <button>
+                    В корзину
+                </button>
+
+            </div>
+
+        </div>
+    
+    `).join("");
+}
+
+js/auth.js:
+
+//тута формы регистрации и входа
+const registerForm = document.getElementById("registerForm");
+const loginForm = document.getElementById("loginForm");
+
+if (registerForm) {
+    registerForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        const error = document.getElementById("error");
+        const success = document.getElementById("success");
+
+        let users = getUsers();
+
+        const existingUser = users.find(user => user.email === email);
+
+        if (existingUser) {
+            error.textContent = "Пользователь уже существует";
+            success.textContent = "";
+            return;
+        }
+
+        const newUser = {
+            id: Date.now(),
+            name,
+            email,
+            password,
+            bonuses: 0,
+            favorites: [],
+            orders: [],
+            reviews: []
+        };
+
+        users.push(newUser);
+
+        saveUsers(users);
+
+        success.textContent = "Аккаунт создан";
+        error.textContent = "";
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1000);
+    });
+}
+
+if (loginForm) {
+    loginForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        const error = document.getElementById("error");
+
+        const users = getUsers();
+
+        const user = users.find(user =>
+            user.email === email &&
+            user.password === password
+        );
+
+        if (!user) {
+            error.textContent = "Неверный логин или пароль";
+            return;
+        }
+
+        setCurrentUser(user);
+
+        window.location.href = "profile.html";
+    });
+}
+
+js/catalog.js:
+
+//тута логика страницы каталога
+const catalogProducts = document.getElementById("catalogProducts");
+
+const searchInput = document.getElementById("searchInput");
+
+const categoryFilter = document.getElementById("categoryFilter");
+
+const sortSelect = document.getElementById("sortSelect");
+
+function renderProducts(items) { //как выглядят товары на странице
+
+    catalogProducts.innerHTML = items.map(product => `
+    
+        <div class="product-card">
+
+            <img src="${product.image}" alt="${product.title}">
+
+            <div class="product-content">
+
+                <h3 class="product-title">
+                    ${product.title}
+                </h3>
+
+                <p class="product-category">
+                    ${product.category}
+                </p>
+
+                <p class="product-price">
+                    ${product.price.toLocaleString()} ₽
+                </p>
+
+                <button>
+                    В корзину
+                </button>
+
+            </div>
+
+        </div>
+    
+    `).join("");
+}
+
+function filterProducts() { //фильтрация
+
+    let filtered = [...products];
+
+    const searchValue = searchInput.value.toLowerCase(); //поиск по названию
+
+    const categoryValue = categoryFilter.value; //выбор категории
+
+    const sortValue = sortSelect.value; //выбор сортировки
+
+    if (searchValue) {
+        filtered = filtered.filter(product =>
+            product.title.toLowerCase().includes(searchValue)
+        );
+    }
+
+    if (categoryValue) {
+        filtered = filtered.filter(product =>
+            product.category === categoryValue
+        );
+    }
+
+    if (sortValue === "priceAsc") {
+        filtered.sort((a, b) => a.price - b.price);
+    }
+
+    if (sortValue === "priceDesc") {
+        filtered.sort((a, b) => b.price - a.price);
+    }
+
+    if (sortValue === "rating") {
+        filtered.sort((a, b) => b.rating - a.rating);
+    }
+
+    renderProducts(filtered);
+}
+
+searchInput.addEventListener("input", filterProducts);
+
+categoryFilter.addEventListener("change", filterProducts);
+
+sortSelect.addEventListener("change", filterProducts);
+
+renderProducts(products);
+
+js/navbar.js:
+
+//это верхняя менюшечка-плюшечка
+const navProfile = document.getElementById("navProfile");
+
+const currentUser = getCurrentUser();
+
+if (navProfile) {
+
+    if (currentUser) { //если user залогинен будет кнопочка его аккаунта и не будет входа
+
+        navProfile.innerHTML = `
+        
+            <a href="profile.html" class="profile-link">
+
+                <div class="avatar">
+                    ${currentUser.name.charAt(0).toUpperCase()}
+                </div>
+
+                <span>
+                    ${currentUser.name}
+                </span>
+
+            </a>
+        
+        `;
+
+    } else {
+        //если user не залогинен будет кнопочка для входа и не будет профиля
+        navProfile.innerHTML = ` 
+        
+            <a href="login.html">
+                Вход
+            </a>
+        
+        `;
+    }
+}
+
+
+js/profile.js:
+
+//тута профиль юзерочка
+const profileInfo = document.getElementById("profileInfo");
+
+const user = getCurrentUser();
+
+if (!user) { //если не залогиинен перейдешь на страницу входа, хз зачем тк в профиль все равно не войдешь без входа в акк но вдруг!!!!! 
+    window.location.href = "login.html";
+}
+
+profileInfo.innerHTML = `
+
+    <div class="profile-card">
+
+        <h3>Имя</h3>
+
+        <input
+            type="text"
+            id="editName"
+            value="${user.name}"
+        >
+
+        <button id="saveNameBtn">
+            Сохранить имя
+        </button>
+
+    </div>
+
+    <div class="profile-card">
+        <h3>Email</h3>
+        <p>${user.email}</p>
+    </div>
+
+    <div class="profile-card">
+        <h3>Бонусы</h3>
+        <p>${user.bonuses}</p>
+    </div>
+
+    <div class="profile-card">
+        <h3>Избранных товаров</h3>
+        <p>${user.favorites.length}</p>
+    </div>
+
+    <div class="profile-card">
+        <h3>Заказов</h3>
+        <p>${user.orders.length}</p>
+    </div>
+
+`;
+
+const saveNameBtn = document.getElementById("saveNameBtn"); //смена имени
+
+saveNameBtn.addEventListener("click", () => {
+
+    const newName = document
+        .getElementById("editName")
+        .value
+        .trim();
+
+    if (!newName) return;
+
+    let users = getUsers();
+
+    const updatedUsers = users.map(item => {
+
+        if (item.id === user.id) {
+            item.name = newName;
+        }
+
+        return item;
+    });
+
+    saveUsers(updatedUsers);
+
+    user.name = newName;
+
+    setCurrentUser(user);
+
+    location.reload();
+});
+
+js/storage.js:
+
+//ультра гипер мега хранилище
+if (!localStorage.getItem("users")) {
+    localStorage.setItem(
+        "users",
+        JSON.stringify(defaultUsers)
+    );
+}
+
+function getUsers() {
+    return JSON.parse(localStorage.getItem("users")) || [];
+}
+
+function saveUsers(users) {
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+function getCurrentUser() {
+    return JSON.parse(localStorage.getItem("currentUser"));
+}
+
+function setCurrentUser(user) {
+    localStorage.setItem("currentUser", JSON.stringify(user));
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+}
+
+catalog.html:
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <div id="navProfile"></div>
+            </div>
+        </div>
+    </header>
+
+    <h1 class="section-title">Каталог товаров</h1>
+
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Поиск товаров...">
+
+        <select id="categoryFilter">
+            <option value="">Все категории</option>
+            <option value="Видеокарты">Видеокарты</option>
+            <option value="Процессоры">Процессоры</option>
+            <option value="SSD">SSD</option>
+            <option value="Материнские платы">Материнские платы</option>
+        </select>
+
+        <select id="sortSelect">
+            <option value="">Без сортировки</option>
+            <option value="priceAsc">Цена ↑</option>
+            <option value="priceDesc">Цена ↓</option>
+            <option value="rating">Рейтинг</option>
+        </select>
+    </div>
+
+    <div class="products-grid" id="catalogProducts"></div>
+</div>
+
+<script src="data/products.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/catalog.js"></script>
+
+</body>
+</html>
+
+index.html:
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <div id="navProfile"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Комплектующие для мощных сборок</h1>
+        <p>Видеокарты, процессоры, SSD, охлаждение, оперативная память и лучшие комплектующие для игровых и рабочих ПК.</p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Категории</h2>
+        <div class="categories">
+            <div class="category-card">
+                <h3>Видеокарты</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>Процессоры</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>Материнские платы</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>SSD накопители</h3>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Популярные товары</h2>
+        <div class="products-grid" id="popularProducts"></div>
+    </section>
+</div>
+
+<script src="data/users.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/navbar.js"></script>
+<script src="data/products.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
+
+login.html:
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Вход</h1>
+
+    <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Пароль" required>
+
+        <button type="submit">Войти</button>
+
+        <p class="error" id="error"></p>
+    </form>
+
+    <div class="link">
+        <a href="register.html">Создать аккаунт</a>
+    </div>
+</div>
+
+<script src="data/users.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
+
+profile.html:
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="profile-page">
+
+<div class="page">
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <div id="navProfile"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Личный кабинет</h1>
+
+        <div class="profile-info" id="profileInfo"></div>
+
+        <button class="logout-btn" onclick="logout()">Выйти</button>
+    </div>
+
+</div>
+
+<script src="data/users.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>
+
+register.html:
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Регистрация</h1>
+
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Имя" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Пароль" required>
+
+        <button type="submit">Создать аккаунт</button>
+
+        <p class="error" id="error"></p>
+        <p class="success" id="success"></p>
+    </form>
+
+    <div class="link">
+        <a href="login.html">Уже есть аккаунт?</a>
+    </div>
+</div>
+
+<script src="data/users.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
+
+//также есть папки assets внутри Icons/ и Products/ и файлы пока пустые это файлы в папке js: cart.js favorites.js modal.js reviews.js slider.js

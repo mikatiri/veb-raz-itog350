@@ -26,3 +26,16 @@ function logout() {
     localStorage.removeItem("currentUser");
     window.location.href = "login.html";
 }
+
+function updateCurrentUser(user) {
+
+    setCurrentUser(user);
+
+    let users = getUsers();
+
+    users = users.map(item =>
+        item.id === user.id ? user : item
+    );
+
+    saveUsers(users);
+}
