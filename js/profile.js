@@ -1,8 +1,9 @@
+//тута профиль юзерочка
 const profileInfo = document.getElementById("profileInfo");
 
 const user = getCurrentUser();
 
-if (!user) {
+if (!user) { //если не залогиинен перейдешь на страницу входа, хз зачем тк в профиль все равно не войдешь без входа в акк но вдруг!!!!! 
     window.location.href = "login.html";
 }
 
@@ -46,7 +47,7 @@ profileInfo.innerHTML = `
 
 `;
 
-const saveNameBtn = document.getElementById("saveNameBtn");
+const saveNameBtn = document.getElementById("saveNameBtn"); //смена имени
 
 saveNameBtn.addEventListener("click", () => {
 
@@ -62,9 +63,7 @@ saveNameBtn.addEventListener("click", () => {
     const updatedUsers = users.map(item => {
 
         if (item.id === user.id) {
-
             item.name = newName;
-
         }
 
         return item;

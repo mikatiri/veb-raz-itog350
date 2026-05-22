@@ -1,3 +1,4 @@
+//это то как выглядет вкладка популярных товаров на главном экране
 const popularProducts = document.getElementById("popularProducts");
 
 if (popularProducts) {

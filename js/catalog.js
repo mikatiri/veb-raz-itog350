@@ -1,3 +1,4 @@
+//тута логика страницы каталога
 const catalogProducts = document.getElementById("catalogProducts");
 
 const searchInput = document.getElementById("searchInput");
@@ -6,7 +7,7 @@ const categoryFilter = document.getElementById("categoryFilter");
 
 const sortSelect = document.getElementById("sortSelect");
 
-function renderProducts(items) {
+function renderProducts(items) { //как выглядят товары на странице
 
     catalogProducts.innerHTML = items.map(product => `
     
@@ -39,15 +40,15 @@ function renderProducts(items) {
     `).join("");
 }
 
-function filterProducts() {
+function filterProducts() { //фильтрация
 
     let filtered = [...products];
 
-    const searchValue = searchInput.value.toLowerCase();
+    const searchValue = searchInput.value.toLowerCase(); //поиск по названию
 
-    const categoryValue = categoryFilter.value;
+    const categoryValue = categoryFilter.value; //выбор категории
 
-    const sortValue = sortSelect.value;
+    const sortValue = sortSelect.value; //выбор сортировки
 
     if (searchValue) {
         filtered = filtered.filter(product =>

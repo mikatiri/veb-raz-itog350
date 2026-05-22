@@ -1,3 +1,4 @@
+//тута формы регистрации и входа
 const registerForm = document.getElementById("registerForm");
 const loginForm = document.getElementById("loginForm");
 
