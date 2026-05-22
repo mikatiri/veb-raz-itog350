@@ -7,9 +7,21 @@ if (!user) {
 }
 
 profileInfo.innerHTML = `
+
     <div class="profile-card">
+
         <h3>Имя</h3>
-        <p>${user.name}</p>
+
+        <input
+            type="text"
+            id="editName"
+            value="${user.name}"
+        >
+
+        <button id="saveNameBtn">
+            Сохранить имя
+        </button>
+
     </div>
 
     <div class="profile-card">
@@ -31,4 +43,38 @@ profileInfo.innerHTML = `
         <h3>Заказов</h3>
         <p>${user.orders.length}</p>
     </div>
+
 `;
+
+const saveNameBtn = document.getElementById("saveNameBtn");
+
+saveNameBtn.addEventListener("click", () => {
+
+    const newName = document
+        .getElementById("editName")
+        .value
+        .trim();
+
+    if (!newName) return;
+
+    let users = getUsers();
+
+    const updatedUsers = users.map(item => {
+
+        if (item.id === user.id) {
+
+            item.name = newName;
+
+        }
+
+        return item;
+    });
+
+    saveUsers(updatedUsers);
+
+    user.name = newName;
+
+    setCurrentUser(user);
+
+    location.reload();
+});

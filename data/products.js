@@ -3,8 +3,22 @@ const products = [
         id: 1,
         title: "RTX 4070 Ti",
         category: "Видеокарты",
+        brand: "NVIDIA",
         price: 79990,
+        oldPrice: 89990,
+        discount: 11,
         rating: 4.9,
+        stock: true,
+        isPopular: true,
+        specs: {
+            memory: "12GB",
+            frequency: "2610 MHz",
+            power: "285W"
+        },
+        description:
+            "Мощная видеокарта для 2K и 4K гейминга.",
+
+        reviews: [],
         image: src="./assets/Products/RTX 4070 Ti.jpg"
     },
 
