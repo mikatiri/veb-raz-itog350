@@ -1,0 +1,33 @@
+const popularProducts = document.getElementById("popularProducts");
+
+if (popularProducts) {
+    popularProducts.innerHTML = products.map(product => `
+    
+        <div class="product-card">
+
+            <img src="${product.image}" alt="${product.title}">
+
+            <div class="product-content">
+
+                <h3 class="product-title">
+                    ${product.title}
+                </h3>
+
+                <p class="product-category">
+                    ${product.category}
+                </p>
+
+                <p class="product-price">
+                    ${product.price.toLocaleString()} ₽
+                </p>
+
+                <button>
+                    В корзину
+                </button>
+
+            </div>
+
+        </div>
+    
+    `).join("");
+}

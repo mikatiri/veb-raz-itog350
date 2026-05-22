@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="profile-page">
+
+<div class="page">
+
+    <header>
+        <div class="nav">
+
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="profile.html">Профиль</a>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <h1>Личный кабинет</h1>
+
+        <div class="profile-info" id="profileInfo"></div>
+
+        <button class="logout-btn" onclick="logout()">
+            Выйти
+        </button>
+
+    </div>
+
+</div>
+
+<script src="data/users.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>

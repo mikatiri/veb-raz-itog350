@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="nav">
+
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <div id="navProfile"></div>
+
+            </div>
+
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Комплектующие для мощных сборок</h1>
+
+        <p>
+            Видеокарты, процессоры, SSD, охлаждение,
+            оперативная память и лучшие комплектующие
+            для игровых и рабочих ПК.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Категории</h2>
+
+        <div class="categories">
+
+            <div class="category-card">
+                <h3>Видеокарты</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>Процессоры</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>Материнские платы</h3>
+            </div>
+
+            <div class="category-card">
+                <h3>SSD накопители</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Популярные товары</h2>
+
+        <div class="products-grid" id="popularProducts"></div>
+    </section>
+
+</div>
+
+<script src="data/users.js"></script>
+<script src="data/products.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
