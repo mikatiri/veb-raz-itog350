@@ -1,5 +1,5 @@
-//добавление товара в корзину
-function addToCart(productId) {
+//добавление товара в избранное
+function addToFavorites(productId) {
     const user = getCurrentUser();
 
     if (!user) {
@@ -7,157 +7,85 @@ function addToCart(productId) {
         return;
     }
 
-    if (!user.cart) {
-        user.cart = [];
+    if (!user.favorites) {
+        user.favorites = [];
     }
 
-    const existing = user.cart.find(
+    const existing = user.favorites.find(
         item => item.id === productId
     );
 
-    if (existing) {
-        existing.quantity++;
-    } else {
-        user.cart.push({
+    if (!existing) {
+        user.favorites.push({
             id: productId,
-            quantity: 1
+            addedAt: Date.now()
         });
+        updateCurrentUser(user);
+        renderFavorites();
     }
-
-    updateCurrentUser(user);
-    renderCart();
 }
 
-//удаление товара из корзины
-function removeFromCart(productId) {
+//удаление товара из избранного
+function removeFromFavorites(productId) {
     const user = getCurrentUser();
 
-    user.cart = user.cart.filter(
+    user.favorites = user.favorites.filter(
         item => item.id !== productId
     );
 
     updateCurrentUser(user);
-    renderCart();
+    renderFavorites();
 }
 
-//изменение количества
-function changeQuantity(productId, value) {
-    const user = getCurrentUser();
+//рендер избранного
+function renderFavorites() {
+    const favoritesItems = document.getElementById("favoritesItems");
 
-    const item = user.cart.find(
-        item => item.id === productId
-    );
-
-    if (!item) return;
-
-    item.quantity += value;
-
-    if (item.quantity <= 0) {
-        user.cart = user.cart.filter(
-            item => item.id !== productId
-        );
-    }
-
-    updateCurrentUser(user);
-    renderCart();
-}
-
-//рендер корзины
-function renderCart() {
-    const cartItems = document.getElementById("cartItems");
-
-    if (!cartItems) return;
+    if (!favoritesItems) return;
 
     const user = getCurrentUser();
 
-    if (!user || !user.cart.length) {
-        cartItems.innerHTML = `
-            <p class="empty-text">Корзина пуста</p>
+    if (!user || !user.favorites.length) {
+        favoritesItems.innerHTML = `
+            <p class="empty-text">Избранное пусто</p>
         `;
 
         return;
     }
 
-    let totalWithoutDiscount = 0;
-    let total = 0;
+    const favoriteProducts = user.favorites.map(fav => {
+        const product = products.find(p => p.id === fav.id);
+        return product;
+    }).filter(p => p);
 
-    cartItems.innerHTML = user.cart.map(item => {
-        const product = products.find(
-            p => p.id === item.id
-        );
-
-        const oldPrice = product.oldPrice || product.price;
-
-        totalWithoutDiscount += oldPrice * item.quantity;
-
-        total += product.price * item.quantity;
-
+    favoritesItems.innerHTML = favoriteProducts.map(product => {
+        const hasDiscount = product.oldPrice && product.oldPrice > product.price;
+        const discountPercent = hasDiscount ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+        
         return `
         
-            <div class="shop-card">
-                <img src="${product.image}" alt="${product.title}" onclick="openProductModal(${product.id})">
+        <div class="shop-card">
+            <img src="${product.image}" alt="${product.title}" onclick="openProductModal(${product.id})">
 
-                <div class="shop-info">
-                    <h3>${product.title}</h3>
+            <div class="shop-info">
+                <h3>${product.title}</h3>
 
-                    <p>${product.category}</p>
+                <p>${product.category}</p>
 
+                <div class="product-prices-inline">
+                    ${hasDiscount ? `<p class="product-old-price">${product.oldPrice.toLocaleString()} ₽</p>` : ''}
                     <p class="product-price">${product.price.toLocaleString()} ₽</p>
+                    ${hasDiscount ? `<span class="product-discount-badge">-${discountPercent}%</span>` : ''}
+                </div>
 
-                    ${
-                        product.oldPrice
-                        ?
-                        `
-                            <p class="old-price">${product.oldPrice.toLocaleString()} ₽</p>
-                        `
-                        :
-                        ""
-                    }
+                <div class="shop-actions">
+                    <button onclick="addToCart(${product.id})" class="btn-cart">В корзину</button>
 
-                    <div class="shop-actions">
-                        <button onclick="changeQuantity(${product.id}, -1)">-</button>
-
-                        <span>${item.quantity}</span>
-
-                        <button onclick="changeQuantity(${product.id}, 1)">+</button>
-
-                        <button onclick="removeFromCart(${product.id})">Удалить</button>
-                    </div>
+                    <button onclick="removeFromFavorites(${product.id})" class="btn-delete">Удалить</button>
                 </div>
             </div>
-        `;
-    }).join("");
-
-    const discount = totalWithoutDiscount - total;
-
-    document.getElementById("cartWithoutDiscount").textContent = `Без скидки: ${totalWithoutDiscount.toLocaleString()} ₽`;
-
-    document.getElementById("cartDiscount").textContent = `Скидка: ${discount.toLocaleString()} ₽`;
-
-    document.getElementById("cartTotal").textContent = `Итого: ${total.toLocaleString()} ₽`;
+        </div>
+    `}).join("");
 }
 
-//оформление заказа
-// const checkoutBtn =
-//     document.getElementById("checkoutBtn");
-
-// if (checkoutBtn) {
-//     checkoutBtn.addEventListener("click", () => {
-//         const user = getCurrentUser();
-
-//         if (!user.cart.length) return;
-
-//         user.orders.push({
-//             id: Date.now(),
-//             items: user.cart,
-//             date: new Date().toLocaleDateString()
-//         });
-//         user.cart = [];
-
-//         updateCurrentUser(user);
-//         renderCart();
-//         alert("Заказ оформлен");
-//     });
-
-// }
-// renderCart();
+renderFavorites();

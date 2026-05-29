@@ -90,6 +90,8 @@ function renderCart() {
 
         total += product.price * item.quantity;
 
+        const discountPercent = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+
         return `
         
             <div class="shop-card">
@@ -104,17 +106,11 @@ function renderCart() {
 
                     <p>${product.category}</p>
 
-                    <p class="product-price">${product.price.toLocaleString()} ₽</p>
-
-                    ${
-                        product.oldPrice
-                        ?
-                        `
-                            <p class="old-price">${product.oldPrice.toLocaleString()} ₽</p>
-                        `
-                        :
-                        ""
-                    }
+                    <div class="product-prices-inline">
+                        ${product.oldPrice ? `<p class="product-old-price">${product.oldPrice.toLocaleString()} ₽</p>` : ''}
+                        <p class="product-price">${product.price.toLocaleString()} ₽</p>
+                        ${product.oldPrice ? `<span class="product-discount-badge">-${discountPercent}%</span>` : ''}
+                    </div>
 
                     <div class="shop-actions">
                         <button onclick="changeQuantity(${product.id}, -1)">-</button>
@@ -123,12 +119,16 @@ function renderCart() {
 
                         <button onclick="changeQuantity(${product.id}, 1)">+</button>
 
-                        <button onclick="removeFromCart(${product.id})">Удалить</button>
+                        <button onclick="removeFromCart(${product.id})" class="btn-delete">Удалить</button>
                     </div>
                 </div>
             </div>
         `;
     }).join("");
+
+    const discount = totalWithoutDiscount - total;
+
+    const discountPercent = totalWithoutDiscount > 0 ? Math.round((discount / totalWithoutDiscount) * 100) : 0;
 
     const withoutDiscount =
     document.getElementById("cartWithoutDiscount");
@@ -141,15 +141,20 @@ const totalElement =
 
 if (withoutDiscount) {
 
-    withoutDiscount.textContent =
-        `Без скидки: ${totalWithoutDiscount.toLocaleString()} ₽`;
+    withoutDiscount.innerHTML = `
+        <div class="discount-info">
+            <p>Цена без скидки: <strong>${totalWithoutDiscount.toLocaleString()} ₽</strong></p>
+            <p>Скидка: <strong>${discountPercent}% (${discount.toLocaleString()} ₽)</strong></p>
+            <p>Цена со скидкой: <strong>${total.toLocaleString()} ₽</strong></p>
+        </div>
+    `;
 
 }
 
 if (discountElement) {
 
     discountElement.textContent =
-        `Скидка: ${discount.toLocaleString()} ₽`;
+        ``;
 
 }
 

@@ -16,27 +16,6 @@
                 <a href="index.html">PC Store</a> 
             </div>
 
-            <!-- Потом сделай тут норм поиск -->
-
-            <!-- <div class="filters">
-                <input type="text" id="searchInput" placeholder="Поиск товаров...">
-
-                <select id="categoryFilter">
-                    <option value="">Все категории</option>
-                    <option value="Видеокарты">Видеокарты</option>
-                    <option value="Процессоры">Процессоры</option>
-                    <option value="SSD">SSD</option>
-                    <option value="Материнские платы">Материнские платы</option>
-                </select>
-
-                <select id="sortSelect">
-                    <option value="">Без сортировки</option>
-                    <option value="priceAsc">Цена ↑</option>
-                    <option value="priceDesc">Цена ↓</option>
-                    <option value="rating">Рейтинг</option>
-                </select>
-            </div> -->
-
             <div class="nav-links">
                 <a href="index.html">Главная</a>
                 <a href="catalog.html">Каталог</a>
@@ -54,9 +33,8 @@
     </section>
 
     <section>
-        <div class="logo"><a href="catalog.html"  class="logo">Каталог</a></div>
-        <div class="categories">
-
+        <h2 class="section-title">Категории</h2>
+        <div class="categories-slider">
             <a href="catalog.html?category=Видеокарты" class="category-card">
                 <h3>Видеокарты</h3>
             </a>
@@ -72,12 +50,49 @@
             <a href="catalog.html?category=SSD" class="category-card">
                 <h3>SSD-накопители</h3>
             </a>
+
+            <a href="catalog.html?category=Оперативная память" class="category-card">
+                <h3>Оперативная память</h3>
+            </a>
+
+            <a href="catalog.html?category=Охлаждение" class="category-card">
+                <h3>Охлаждение</h3>
+            </a>
+
+            <a href="catalog.html?category=Корпуса" class="category-card">
+                <h3>Корпуса</h3>
+            </a>
+
+            <a href="catalog.html?category=Блоки питания" class="category-card">
+                <h3>Блоки питания</h3>
+            </a>
+
+            <a href="catalog.html?category=Мониторы" class="category-card">
+                <h3>Мониторы</h3>
+            </a>
+
+            <a href="catalog.html?category=Клавиатуры" class="category-card">
+                <h3>Клавиатуры</h3>
+            </a>
+
+            <a href="catalog.html?category=Мыши" class="category-card">
+                <h3>Мыши</h3>
+            </a>
+
+            <a href="catalog.html?category=Аксессуары" class="category-card">
+                <h3>Аксессуары</h3>
+            </a>
         </div>
     </section>
 
     <section>
         <h2 class="section-title">Популярные товары</h2>
-        <div class="products-grid" id="popularProducts"></div>
+        <div class="popular-products-slider" id="popularProducts"></div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Акционные товары</h2>
+        <div class="popular-products-slider" id="discountProducts"></div>
     </section>
 </div>
 

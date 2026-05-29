@@ -6,12 +6,17 @@ const sortSelect = document.getElementById("sortSelect");
 const params = new URLSearchParams(window.location.search);
 const categoryFromUrl = params.get("category");
 
-if(categoryFromUrl){
+if(categoryFromUrl && categoryFilter){
     categoryFilter.value = categoryFromUrl;
 }
 
 function renderProducts(items) { //как выглядят товары на странице
-    catalogProducts.innerHTML = items.map(product => `
+    catalogProducts.innerHTML = items.map(product => {
+        // Автоматический расчет скидки
+        const hasDiscount = product.oldPrice && product.oldPrice > product.price;
+        const discountPercent = hasDiscount ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
+        
+        return `
         <div class="product-card" onclick="openProductModal(${product.id})">
             <img src="${product.image}" alt="${product.title}">
             <div class="product-content">
@@ -23,28 +28,30 @@ function renderProducts(items) { //как выглядят товары на с�
                     ${product.category}
                 </p>
 
-                <p class="product-price">
-                    ${product.price.toLocaleString()} ₽
-                </p>
+                <div class="product-prices-inline">
+                    ${hasDiscount ? `<p class="product-old-price">${product.oldPrice.toLocaleString()} ₽</p>` : ''}
+                    <p class="product-price">${product.price.toLocaleString()} ₽</p>
+                    ${hasDiscount ? `<span class="product-discount-badge">-${discountPercent}%</span>` : ''}
+                </div>
 
-                <button onclick="event.stopPropagation(); addToCart(${product.id})">
+                <button onclick="event.stopPropagation(); addToCart(${product.id})" class="btn-cart">
                     В корзину
                 </button>
 
-                <button onclick="event.stopPropagation(); addToFavorites(${product.id})">
-                    В Израбнное
+                <button onclick="event.stopPropagation(); addToFavorites(${product.id})" class="btn-favorites">
+                    В Избранное
                 </button>
             </div>
         </div>
-    `).join("");
+    `}).join("");
 }
 
 function filterProducts() { //фильтрация
     let filtered = [...products];
 
-    const searchValue = searchInput.value.toLowerCase(); //поиск по названию
-    const categoryValue = categoryFilter.value; //выбор категории
-    const sortValue = sortSelect.value; //выбор сортировки
+    const searchValue = searchInput ? searchInput.value.toLowerCase() : ""; //поиск по названию
+    const categoryValue = categoryFilter ? categoryFilter.value : ""; //выбор категории
+    const sortValue = sortSelect ? sortSelect.value : ""; //выбор сортировки
 
     if (searchValue) {
         filtered = filtered.filter(product =>
@@ -73,11 +80,21 @@ function filterProducts() { //фильтрация
     renderProducts(filtered);
 }
 
-searchInput.addEventListener("input", filterProducts);
+//если есть фильтры, добавляем слушатели событий
+if (categoryFilter) {
+    categoryFilter.addEventListener("change", filterProducts);
+}
 
-categoryFilter.addEventListener("change", filterProducts);
+if (sortSelect) {
+    sortSelect.addEventListener("change", filterProducts);
+}
 
-sortSelect.addEventListener("change", filterProducts);
+//если есть searchInput и categoryFilter, добавляем слушатель событий
+if (searchInput && categoryFilter) {
+    searchInput.addEventListener("input", filterProducts);
+}
 
-//был renderProducts(products);
-filterProducts()
+//если нет searchInput или он пустой, показываем все товары
+if (!searchInput || searchInput.value === "") {
+    filterProducts();
+}
