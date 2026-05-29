@@ -7,6 +7,7 @@ const defaultUsers = [
         password: "Teacher_2026",
         bonuses: 500,
         favorites: [],
+        cart: [],
         orders: [],
         reviews: []
     },
@@ -18,6 +19,7 @@ const defaultUsers = [
         password: "000",
         bonuses: 1500,
         favorites: [],
+        cart: [],
         orders: [],
         reviews: []
     }

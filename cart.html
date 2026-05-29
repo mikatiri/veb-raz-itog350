@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Корзина</title>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <div class="page">
-        <header>...</header>
+        <header>
+            <div class="nav">
+                    <div class="logo">
+                        <a href="index.html">PC Store</a> 
+                    </div>
+
+                    <!-- Потом сделай тут норм поиск -->
+                    
+                    <!-- <div class="filters">
+                        <input type="text" id="searchInput" placeholder="Поиск товаров...">
+
+                        <select id="categoryFilter">
+                            <option value="">Все категории</option>
+                            <option value="Видеокарты">Видеокарты</option>
+                            <option value="Процессоры">Процессоры</option>
+                            <option value="SSD">SSD</option>
+                            <option value="Материнские платы">Материнские платы</option>
+                        </select>
+
+                        <select id="sortSelect">
+                            <option value="">Без сортировки</option>
+                            <option value="priceAsc">Цена ↑</option>
+                            <option value="priceDesc">Цена ↓</option>
+                            <option value="rating">Рейтинг</option>
+                        </select>
+                    </div> -->
+
+                    <div class="nav-links">
+                        <a href="index.html">Главная</a>
+                        <a href="catalog.html">Каталог</a>
+                        <a href="favorites.html">Избранное</a>
+
+                        <div id="navProfile"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
 
         <h1 class="section-title">Корзина</h1>
 
-        <div id="cartItems"></div>
-            <div class="cart-summary">
-                <p id="cartWithoutDiscount"></p>
+        <div class="shop-layout">
+            <div class="shop-items" id = cartItems></div>
+            <div class="shop-summary">
+                <p id="cartWirhoutDiscount"></p>
                 <p id="cartDiscount"></p>
-
                 <h2 id="cartTotal"></h2>
-                <button>Оформить заказ</button>
+                
+                <button id="checkoutBtn">Оформить заказ</button>
             </div>
         </div>
 
         <div class="modal-overlay" id="modalOverlay">
             <div class="modal" id="productModal"></div>
         </div>
+    </div>
 
+<script src="data/users.js"></script>
+<script src="data/products.js"></script>
+
+<script src="js/storage.js"></script>
+<script src="js/navbar.js"></script>
 <script src="js/modal.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/favorites.js"></script>
+
 </body>
 </html>

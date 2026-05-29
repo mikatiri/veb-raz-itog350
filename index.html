@@ -16,9 +16,31 @@
                 <a href="index.html">PC Store</a> 
             </div>
 
-            <div class="nav-links">
-                <a href="cart.html">Корзина</a>
+            <!-- Потом сделай тут норм поиск -->
 
+            <!-- <div class="filters">
+                <input type="text" id="searchInput" placeholder="Поиск товаров...">
+
+                <select id="categoryFilter">
+                    <option value="">Все категории</option>
+                    <option value="Видеокарты">Видеокарты</option>
+                    <option value="Процессоры">Процессоры</option>
+                    <option value="SSD">SSD</option>
+                    <option value="Материнские платы">Материнские платы</option>
+                </select>
+
+                <select id="sortSelect">
+                    <option value="">Без сортировки</option>
+                    <option value="priceAsc">Цена ↑</option>
+                    <option value="priceDesc">Цена ↓</option>
+                    <option value="rating">Рейтинг</option>
+                </select>
+            </div> -->
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="cart.html">Корзина</a>
                 <a href="favorites.html">Избранное</a>
 
                 <div id="navProfile"></div>
@@ -28,27 +50,28 @@
 
     <section class="hero">
         <h1>Комплектующие для мощных сборок</h1>
-        <p>Видеокарты, процессоры, SSD, охлаждение, оперативная память и лучшие комплектующие для игровых и рабочих ПК.</p>
+        <p>Видеокарты, процессоры, SSD, охлаждение, оперативная память и<br>лучшие комплектующие для игровых и рабочих ПК.</p>
     </section>
 
     <section>
-        <h2 class="section-title">Категории</h2>
+        <div class="logo"><a href="catalog.html"  class="logo">Каталог</a></div>
         <div class="categories">
+
             <a href="catalog.html?category=Видеокарты" class="category-card">
                 <h3>Видеокарты</h3>
             </a>
 
             <a href="catalog.html?category=Процессоры" class="category-card">
                 <h3>Процессоры</h3>
-            </div>
+            </a>
 
-            <a href="catalog.html?category=Материнские-платы" class="category-card">
+            <a href="catalog.html?category=Материнские платы" class="category-card">
                 <h3>Материнские платы</h3>
-            </div>
+            </a>
 
-            <a href="catalog.html?category=SSD-накопители" class="category-card">
-                <h3>SSD накопители</h3>
-            </div>
+            <a href="catalog.html?category=SSD" class="category-card">
+                <h3>SSD-накопители</h3>
+            </a>
         </div>
     </section>
 
@@ -69,6 +92,7 @@
 <script src="js/app.js"></script>
 <script src="js/modal.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/catalog.js"></script>
 <script src="js/favorites.js"></script>
 
 </body>

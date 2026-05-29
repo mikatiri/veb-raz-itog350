@@ -1,18 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Избранное</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="productModal"></div>
-    </div>
 
+<div class="page">
+<header>
+        <div class="nav">
+            <div class="logo">
+                <a href="index.html">PC Store</a> 
+            </div>
+
+            <!-- Потом сделай тут норм поиск -->
+
+            <!-- <div class="filters">
+                <input type="text" id="searchInput" placeholder="Поиск товаров...">
+
+                <select id="categoryFilter">
+                    <option value="">Все категории</option>
+                    <option value="Видеокарты">Видеокарты</option>
+                    <option value="Процессоры">Процессоры</option>
+                    <option value="SSD">SSD</option>
+                    <option value="Материнские платы">Материнские платы</option>
+                </select>
+
+                <select id="sortSelect">
+                    <option value="">Без сортировки</option>
+                    <option value="priceAsc">Цена ↑</option>
+                    <option value="priceDesc">Цена ↓</option>
+                    <option value="rating">Рейтинг</option>
+                </select>
+            </div> -->
+
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="cart.html">Корзина</a>
+
+                <div id="navProfile"></div>
+            </div>
+        </div>
+    </header>
+
+    <h1 class="section-title">Избранное</h1>
+
+    <div class="shop-items" id="favoritesItems"></div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="productModal"></div>
+</div>
+
+<script src="data/users.js"></script>
+<script src="data/products.js"></script>
+
+<script src="js/storage.js"></script>
+<script src="js/navbar.js"></script>
 <script src="js/modal.js"></script>
 <script src="js/cart.js"></script>
 <script src="js/favorites.js"></script>
+
 </body>
 </html>

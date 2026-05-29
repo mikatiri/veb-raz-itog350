@@ -30,6 +30,7 @@ if (registerForm) {
             password,
             bonuses: 0,
             favorites: [],
+            cart: [],
             orders: [],
             reviews: []
         };
@@ -58,10 +59,7 @@ if (loginForm) {
 
         const users = getUsers();
 
-        const user = users.find(user =>
-            user.email === email &&
-            user.password === password
-        );
+        const user = users.find(user => user.email === email && user.password === password);
 
         if (!user) {
             error.textContent = "Неверный логин или пароль";
