@@ -306,3 +306,5 @@ const products = [
         image: "./assets/Products/Intel Core i7-14700KF OEM.jpg.webp"
     }
 ];
+
+//сделай так что из избранного когда добавляешь в корзину товар из избранного удаляется
